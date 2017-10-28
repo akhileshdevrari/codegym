@@ -12,14 +12,14 @@
 			echo $_SESSION["register_err"]."<br><br>";
 	?>
 
-	<form action="register_backend.php" method="post">
+	<form action="register.php" method="post">
 	<fieldset>
 	<legend>Register here</legend>
 		Username: <input type="text" name="username" required><br>
 		Name: <input type="text" name="name" required><br>
 		E-mail: <input type="text" name="email"><br>
-		Password: <input type="password" name="password1" required><br>
-		Confirm password: <input type="password" name="password2" required><br>
+		Password: <input type="password" name="password" required><br>
+		Confirm password: <input type="password" required><br>
 		<button type="submit" value="Submit">Submit</button>
 		<button type="reset" value="Reset">Reset</button>
 	</fieldset>
