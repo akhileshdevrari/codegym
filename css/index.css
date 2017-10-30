@@ -28,39 +28,27 @@ span img{
   height: auto;
 }
 
-#login-button{
-  z-index: 2;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 30px;
-  margin-right: 6em;
-  margin-top: 5em;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: rgba(3,3,3,.25);
-  overflow: hidden;
-  /*opacity: 0.5;*/
-  box-shadow: 10px 10px 30px #000;
-}
 
-#register-button{
-  z-index: 2;
-  cursor: pointer;
-  position: absolute;
+#login-button, #register-button{
+ /* top: 0;
   right: 0;
-  bottom: 8em;
   padding: 30px;
   margin-right: 6em;
   margin-top: 5em;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
+  opacity: 0.5;
+ */ 
+  position: relative;
+  font-size: 25px;
+  margin: 12px;
+  color:#eee;
+  padding: 10px;
+  /*width: 180px;*/
+  z-index: 2;
+  cursor: pointer;
+  /*height: 180px;*/
+  border-radius: 5px;
   background: rgba(3,3,3,.25);
-  overflow: hidden;
-  /*opacity: 0.5;*/
+  /*overflow: hidden;*/
   box-shadow: 10px 10px 30px #000;
 }
 
@@ -68,9 +56,9 @@ span img{
 #container{
   z-index: 2;
   position: absolute;
-  top: 0;
-  right: 5px;
-  margin-top: .5em;
+  /*top: 0;
+  right: 5px;*/
+/*  margin-top: .5em;*/
   width: 300px;
   height: 250px;
   border-radius: 15px;
@@ -81,10 +69,10 @@ span img{
 #container2{
   z-index: 2;
   position: absolute;
-  top: 18em;
+  /*top: 18em;
   right: 5px;
   margin-top: .5em;
-  width: 300px;
+  */width: 300px;
   border-radius: 15px;
   background: rgba(3,3,3,0.25);
   box-shadow: 1px 1px 50px #000;
@@ -135,14 +123,14 @@ span img{
   opacity: .5;
 }
 .introduction{
-  padding-left: 80px;
-  padding-right: 80px;
+  /*padding-left: 80px;*/
+  /*padding-right: 80px;*/
   text-align: center;
-  width: 80%;
-  border: 1px solid #333;
-  border-radius: 20px;
+  /*width: 20%;*/
+  border: 1px solid #eee;
+  border-radius: 10px;
   background-color: white;
-  opacity: .8;
+  opacity: .7;
 }
 /* Heading */
 h1{
@@ -207,12 +195,12 @@ input:focus{
 
       #remember-container{
         position: relative;
-        margin: -5px 20px;
+        /*margin: -5px 20px;*/
       }
 
       #tnc-container{
         position: relative;
-        margin: -5px 30px 2px;
+        /*margin: -5px 30px 2px;*/
       }
 
       .checkbox {
@@ -278,8 +266,8 @@ input:focus{
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 2em;
-    margin-right: 10px;
+   /* margin-top: 2em;
+    margin-right: 10px;*/
     width: 260px;
     height: 180px;
     border-radius: 10px;
