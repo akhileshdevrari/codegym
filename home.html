@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<style type="text/css">
+		html{
+			font-family: sans-serif;
+		}
+        .container{
+            margin-left: 24px;
+            margin-right: 24px;
+        }
+		.field{
+			font-size: 18px;
+			margin-bottom: 20px;  
+		}
+		.field select{
+			float: right;
+            border-radius: 5px;
+		}
+        .container{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contest-form .container{
+            background: linear-gradient(to bottom, #BDC1CD, #969EB3);
+            color:#333;
+            width: 100%;
+        }
+        .row{
+            margin: 0;
+        }
+        .hello{
+            font-size: 20px;
+            padding-left: 18px;
+        }
+        #submit{
+            margin: 5px;
+        }
+        .row .btn{
+            float: right;
+            margin-right: 20px;
+        }
+        /*gradient(#71DDD6,#008EB3);*/
+        .header{
+            padding-top:10px;
+            padding-bottom:10px; 
+            margin-bottom: -25px;
+            background: linear-gradient(to bottom, #008EB3 00%, #71DDD6 100%);
+            color:white;
+        }
+        .contest-form{
+            padding-top: -40px;
+        }
+	</style>
+	<!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
+</head>
+<body>
+	<div class="header">
+		<div class="row">
+			<span class="hello">Hello <a href="profile.php" style="color: inherit;">Ash!</a></span>
+			<a class="btn btn-info" href="logout.php">
+				Logout 
+			</a>
+		</div>
+	</div>
+	<br>
+	<div class="contest-form">
+		<div class="row">
+			<div class="container">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="form-area">  
+						<form role="form" action="contest.php">
+							<h2 style="text-align: center;">Contest Form</h2>
+							<div class="field">
+							Duration of Contest:
+								<select name="duration">
+                                <option selected>--select a number--</option>
+									<option value="10">10 minutes</option>
+									<option value="20">20 minutes</option>
+									<option value="40">40 minutes</option>
+									<option value="80">80 minutes</option>
+									<option value="160">160 minutes</option>
+									<option value="320">320 minutes</option>
+								</select>
+							</div>
+							<div class="field">
+							No. of Questions:
+							<select id="nquestions" name="nquestions" onchange="populateFields()">
+                                <option selected>--select a number--</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="4">4</option>
+								<option value="8">8</option>
+								<option value="10">10</option>
+							</select>
+							</div>
+							<div id="spaceForQuestions">
+							</div>
+							<button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	function populateFields(){
+        document.getElementById("spaceForQuestions").innerHTML = "";
+		var x = document.getElementById("nquestions").value;
+        for (i = 1; i <= x; i++){
+            document.getElementById("spaceForQuestions").innerHTML += "<div class='col-md-8 col-md-offset-3'>Q" + i + "<select style='border-radius: 5px; margin-top:4px; margin-bottom:4px; margin-left:18px;'><option selected>--difficulty--</option><option value='easy'>easy</option><option value='medium'>medium</option><option value='hard'>hard</option></select><input type='text' placeholder='tag' style='border-radius: 5px; margin:4px' required></div><br>";
+        }
+	}
+	</script>
+</body>
+</html>
