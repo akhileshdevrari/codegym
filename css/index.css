@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+body, html {
+  height: 100%;
+  background:#7E57C2;
+  background: -webkit-linear-gradient(#7E57C2, #69F0AE);
+  background: linear-gradient(#7E57C2, #69F0AE);
+  position: relative;
+  font-family: sans-serif;
+  overflow-y: scroll;
+}
+
+#particles-js{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: fixed;
+  top: 0;
+  z-index:1;
+}
+
+span img{
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+.buttons{
+  text-align: right;
+  background-color:black;
+  box-shadow: 8px 8px 40px gray;
+}
+
+#login-button, #register-button{
+  opacity: 0.9;
+  position: relative;
+  font-size: 28px;
+  margin-right: 30px;
+  color:#fff;
+  padding: 8px;
+  z-index: 2;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#login-button:hover, #register-button:hover{
+  color: #333;
+  opacity: 1;
+  background: white;
+}
+.register-container .modal-dialog, .login-container, .forgotten-container, .modal-dialog{
+  max-width: 400px;
+  width: 100%;
+}
+.space-ten{
+  padding: 10px 0;
+}
+
+.close-btn{
+  z-index: 2;
+  position: absolute;
+  cursor: pointer;
+  font-family: 'Open Sans Condensed', sans-serif;
+  line-height: 18px;
+  top: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 10px;
+  opacity: .2;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.close-btn:hover{
+  opacity: .5;
+}
+
+.close-btn2{
+  z-index: 2;
+  position: absolute;
+  cursor: pointer;
+  font-family: 'Open Sans Condensed', sans-serif;
+  line-height: 18px;
+  top: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 10px;
+  opacity: .2;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.close-btn2:hover{
+  opacity: .5;
+}
+
+.introduction{
+  padding: 2px;
+  padding-left: 80px;
+  text-align: center;
+  background-color: white;
+  opacity: .7;
+}
+/* Heading */
+h1{
+  font-family: sans-serif;
+}
+
+/* Inputs */
+a,
+input{
+  font-family:  sans-serif,'Open Sans Condensed';
+  text-decoration: none;
+  position: relative;
+  width: 80%;
+  display: block;
+  margin: 9px auto;
+  font-size: 17px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(3,3,3,.1);
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus{
+  outline: none;
+  box-shadow: 3px 3px 10px #333;
+  background: rgba(3,3,3,.18);
+}
+
+/* Placeholders */
+::-webkit-input-placeholder {
+ color: #333;  }
+ :-moz-placeholder { /* Firefox 18- */
+   color: #333;  }
+   ::-moz-placeholder {  /* Firefox 19+ */
+     color: #333;  }
+     :-ms-input-placeholder {  
+       color: #333;  }
+
+       /* Link */
+       a{
+        font-family: 'Open Sans Condensed', sans-serif;
+        text-align: center;
+        padding: 4px 8px;
+        background: rgba(107,255,3,0.3);
+      }
+
+      a:hover{
+        opacity: 0.7;
+      }
+
+      #remember-container{
+        position: relative;
+        margin-left: 10px; 
+
+      }
+
+      #tnc-container{
+        position: relative;
+        text-align: center;
+      }
+
+      .checkbox {
+        position: relative;
+        cursor: pointer;
+        -webkit-appearance: none;
+        padding: 5px;
+        border-radius: 4px;
+        background: rgba(3,3,3,.2);
+        display: inline-block;
+        width: 16px;
+        height: 15px;
+      }
+
+      .checkbox:checked:active {
+       box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+     }
+
+     .checkbox:checked {
+      background: rgba(3,3,3,.4);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.5);
+      color: #fff;
+    }
+
+    .checkbox:checked:after {
+     content: '\2714';
+     font-size: 10px;
+     position: absolute;
+     top: 0px;
+     left: 4px;
+     color: #fff;
+   }
+
+   
+  #forgotten-button{
+    position: absolute;
+    font-size: 12px;
+    font-family: 'Hind', sans-serif;
+    color: #000;
+    cursor: pointer;
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+
+  #forgotten:hover{
+    color: #333;
+  }
+  .orange-btn{
+    background: rgba(87,198,255,.5);
+  }

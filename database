@@ -1,0 +1,12 @@
+CREATE TABLE user (
+    username varchar(100) PRIMARY KEY,
+    password varchar(256),
+    name varchar(100),
+    email varchar(100),
+    image_path varchar(1024),
+    correct_answers int default 0,
+    wrong_answers int default 0,
+    time_limit_exceeded int default 0,
+    runtime_error int default 0,
+    compilation_error int default 0
+);
