@@ -180,7 +180,7 @@
               <h2 style="text-align: center;">Let's have one more contest</h2>
               <div class="field">
               Duration of Contest (in minutes):
-                <input name="duration" required>
+                <input type="number" name="duration" required>
               </div>
               <div class="field">
               No. of Questions:
