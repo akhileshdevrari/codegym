@@ -1,7 +1,5 @@
-yo
 <?php session_start(); 
 	require "db.php";?>
-xyz
 <!DOCTYPE html>
 <html>
 <body>
@@ -9,11 +7,11 @@ xyz
 	$err = "";
 	$sql = "SELECT * FROM user WHERE username = '".$_POST["username"]."'";
 	$result = $conn->query($sql);
-	echo "kachra";
 	if($result->num_rows > 0)
 	{
 		$_SESSION["register_err"] = "Username already taken :(";
-		//header("Location: ./index.php");
+		//echo "oneee";
+		header("Location: index.php");
 		exit;
 	}
 
@@ -23,8 +21,10 @@ xyz
 		VALUES ('".$_POST["username"]."', '".$_POST["name"]."', '".$_POST["email"]."', '".$hash."')";
 		if($conn->query($sql) == TRUE)
 		{
-			$_SESSION["username"] = $row["username"];
-			//header('Location: ./home.php');
+			//echo "twoo";
+			$_SESSION["username"] = $_POST["username"];
+			header('Location: home.php');
+			exit;
 		}
 		else
 		{

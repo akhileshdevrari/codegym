@@ -55,9 +55,16 @@
           ['Wrong Answers',      <?php echo $row["wrong_answers"]; ?>]
         ]);
 
+        if (data.getValue(0,1) + data.getValue(1,1) + data.getValue(2,1) + data.getValue(3,1) + data.getValue(4,1) == 0) {
+           opt_pieslicetext='none';
+           opt_tooltip_trigger='none'
+           data.setCell(3,1,.0001);
+        } 
+
         var options = {
           title: 'Performance',
-          pieSliceText: 'value'
+          pieSliceText: 'value',
+          sliceVisibilityThreshold:0
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));

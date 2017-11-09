@@ -177,13 +177,13 @@ CREATE TABLE `user` (
   `password` varchar(256) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `image_path` varchar(1024) DEFAULT NULL,
+  `image_path` varchar(1024) DEFAULT 'images/batman.jpeg',
   `correct_answers` int(11) DEFAULT '0',
   `wrong_answers` int(11) DEFAULT '0',
   `time_limit_exceeded` int(11) DEFAULT '0',
   `runtime_error` int(11) DEFAULT '0',
   `compilation_error` int(11) DEFAULT '0',
-  `problems_solved` int(11) DEFAULT NULL,
+  `problems_solved` int(11) DEFAULT '0',
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -194,7 +194,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('alien_x','$2y$10$KX5vCWCc7/Pjcfs6SXqwsevPZqC4Q6mJ8E.ekKEuQa7fm1ypQUqCO','Akhilesh Devrari','devrari.akhilesh@gmail.com','images/alien_x.jpeg',10,4,6,3,1,7);
+INSERT INTO `user` VALUES ('alien_x','$2y$10$KX5vCWCc7/Pjcfs6SXqwsevPZqC4Q6mJ8E.ekKEuQa7fm1ypQUqCO','Akhilesh Devrari','devrari.akhilesh@gmail.com','images/alien_x.jpeg',10,4,6,3,1,7),('vilgax','$2y$10$B35sg1kEQhxk7qn9QaVrCufOJMtMO/JrVmzMb9E3uNECV8Au1L2sC','Vilgax','vilgax@alienforce.com','images/batman.jpeg',0,0,0,0,0,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -207,4 +207,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-09 10:55:06
+-- Dump completed on 2017-11-09 12:34:47
