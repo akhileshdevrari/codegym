@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Admin Page
+	</title>
+	<style>
+		html{
+			font-family: sans-serif;
+		}
+		input[type=text], select {
+			margin-right: auto;
+			margin-left:auto; 
+			width:45%;
+			padding: 12px 20px;
+			margin-top: 8px;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+		form{
+			text-align: left;
+			margin-left: 20%;
+			
+		}
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 8px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+		label{
+			display: inline-block;
+		}
+		textarea {
+			border-radius: 5px;
+			margin-top: 8px;
+		}
+		.elongated{
+			height: 150px;
+			width: 44.5%;
+		}
+		.formfield *{
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<h1 style="text-align: center; color: #333;">CodeGym Admin</h1>
+	<p style="text-align: center;">Note: Use escape sequence ('\' without quotes) to use special characters</p>
+	<p style="text-align: center;">Special characters include ' " \</p>
+	<form action="admin_backend.php" method="post" enctype="multipart/form-data">
+		<label for="title">Title</label>
+		<input type="text" name="title" required><br>
+
+		<div class="formfield">
+			<label for="problem_statement">Problem Statement</label>
+			<textarea type="text" class="elongated" name="problem_statement" required></textarea><br>
+		</div>
+
+		<label for="tag">Tag</label>
+		<input type="text" name="tag" required><br>
+
+		<label for="author">Author</label>
+		<input type="text" name="author" required><br> 
+
+		<label for="tester">Tester</label>
+		<input type="text" name="tester" required><br>
+
+		<label for="difficulty">Difficulty</label>
+		<input type="text" name="difficulty" required><br>
+
+		<div class="formfield">
+			<label for="sample_input">Sample Input</label>
+			<textarea type="text" class="elongated" name="sample_input" required></textarea><br>
+		</div>
+
+		<div class="formfield">
+			<label for="sample_output">Sample Output</label>
+			<textarea type="text" class="elongated" name="sample_output" required></textarea><br>
+		</div>
+		<div class="formfield">
+			<label for="backend_input">Backend Input</label>
+			<input type="file" name="backend_input" id="backend_input">
+		</div>
+		<div class="formfield">
+			<label for="backend_output">Backend Output</label>
+			<input type="file" name="backend_output" id="backend_output">
+		</div>
+		<div class="formfield">
+			<label for="input_text">Input Description and Constraints</label>
+			<textarea type="text" class="elongated" name="input_text" required></textarea><br>
+		</div>
+
+		<div class="formfield">
+			<label for="output_text" id="max">Output Description and Constraints</label>
+			<textarea type="text" class="elongated" name="output_text" required></textarea><br>
+		</div>
+
+		<input type="submit" value="Submit">
+	</form>
+	<script type="text/javascript">
+		var width = document.getElementById('max').offsetWidth;
+		width += 2;
+		width += "px";
+		for(var i = 0; i<12; i++)
+			document.getElementsByTagName('label')[i].style.width = width ;
+	</script>
+</body>
+</html>
+<!DOCTYPE html>

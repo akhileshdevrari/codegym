@@ -28,20 +28,35 @@ span img{
   height: auto;
 }
 
+.buttons a{
+  background-color: black;
+  display: inline;
+  font-size: 25px;
+  text-align: left;
+  padding-left: 30px;
+  color: #eee;
+  /*max-width: 70%;*/
+  /*vertical-align: middle;*/
+}
+
 .buttons{
-  text-align: right;
+  /*text-align: right;*/
+  font-family: sans-serif;
+  /*display: inline;*/
   background-color:black;
+  padding: 8px;
   box-shadow: 8px 8px 40px gray;
 }
 
 #login-button, #register-button{
-  opacity: 0.9;
   position: relative;
+  float: right;
   font-size: 28px;
   margin-right: 30px;
   color:#fff;
-  padding: 8px;
   z-index: 2;
+  padding-left:4px;
+  padding-right:4px; 
   cursor: pointer;
   border-radius: 5px;
 }
@@ -51,7 +66,7 @@ span img{
   opacity: 1;
   background: white;
 }
-.register-container .modal-dialog, .login-container, .forgotten-container, .modal-dialog{
+.register-container .modal-dialog, .modal-dialog{
   max-width: 400px;
   width: 100%;
 }
@@ -105,12 +120,24 @@ span img{
   opacity: .5;
 }
 
+form{
+  text-align: center;
+}
+
 .introduction{
   padding: 2px;
-  padding-left: 80px;
-  text-align: center;
   background-color: white;
-  opacity: .7;
+  opacity: .9;
+}
+
+.introduction img{
+  float: left;
+}
+
+.modal-open{
+  /*position: fixed;*/
+  padding-right: 0 !important;
+  overflow-y:scroll;
 }
 /* Heading */
 h1{
@@ -123,12 +150,10 @@ input{
   font-family:  sans-serif,'Open Sans Condensed';
   text-decoration: none;
   position: relative;
-  width: 80%;
+  width: 75%;
   display: block;
-  margin: 9px auto;
   font-size: 17px;
   padding: 8px;
-  border-radius: 6px;
   border: none;
   background: rgba(3,3,3,.1);
   -webkit-transition: all 2s ease-in-out;
@@ -137,6 +162,16 @@ input{
   transition: all 0.2s ease-in-out;
 }
 
+input{
+  margin: 9px auto;
+  border-radius: 5px; 
+}
+input[type="submit"], input[type="reset"]{
+  display: inline;
+  width:auto;
+  background: #222;
+  color: white;
+}
 input:focus{
   outline: none;
   box-shadow: 3px 3px 10px #333;
@@ -166,9 +201,12 @@ input:focus{
       }
 
       #remember-container{
-        position: relative;
-        margin-left: 10px; 
+        margin-left: 8px;
+      }
 
+      #remember-container *{
+        float: left;
+        margin: 2px;
       }
 
       #tnc-container{
@@ -210,6 +248,7 @@ input:focus{
    
   #forgotten-button{
     position: absolute;
+    margin-top: 3px;
     font-size: 12px;
     font-family: 'Hind', sans-serif;
     color: #000;

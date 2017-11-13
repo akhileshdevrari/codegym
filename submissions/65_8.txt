@@ -1,0 +1,6 @@
+username
+password
+name last name
+email
+photo
+remember me

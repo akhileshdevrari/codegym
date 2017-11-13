@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>login</title>
+  <title>Welcome | CodeGym</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet" />
@@ -12,19 +12,21 @@
 </head>
 <body>
   <div class="buttons">
-    <a style="background-color: black; font-family: sans-serif; display: inline-block; font-size: 25px; text-align: left; margin-left: 30px; color: #eee; vertical-align: middle;" class="typewrite" data-period="2000" data-type='[ "Generate your own contest!", "Practice what you want.", "Be your own judge.", "All the Best!" ]'>
+    <a class="typewrite" data-period="2000" data-type='[ "Create your own contest!", "Practice what you want.", "Competitive environment at your fingertips", "Happy Coding :)" ]'>
       <span class="wrap"></span>
     </a>
-    <span id="login-button" data-toggle="modal" data-target="#login-container">login
-    </span>
     <span id="register-button" data-toggle="modal" data-target="#register-container">register</span>
+    <span id="login-button" data-toggle="modal" data-target="#login-container">login</span>
   </div>
-  <div class="introduction">
-   <h1><b> CodeGym </b></h1>
-   <h2>Welcome to CodeGym
-   </h2>
-   <h3>this is codegym</h3>
-   <p>You asked me if we were in the meth business or the money business. Neither, I’m in the empire business. I was under the impression that you had this under control. Well, that's what this is - problem solving. Skyler this is a simple division of labor - I bring in the money, you launder the money. This is what you wanted.</p>
+  <div class="introduction"> 
+    <img src="images/logo.png">
+    <div class="intro_text">
+     <h2>Welcome to CodeGym
+     </h2>
+     <h3>The place to learn and grow at your own pace.</h3>
+     <p>Just started programming?<br> Coding contests seem too hard?<br> Welcome to your new gym :)</p>
+     <p>Here at CodeGym, you can customize contests according to your needs and learn at your pace. Register now to get started!</p>
+   </div>
  </div>
  <div class="modals"  style="position: absolute;">
   <div id="loginerr">
@@ -45,17 +47,22 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <div class="product_content">
+              <!-- <div class="form"> -->
                 <form action="login.php" method="post">
-                  <input type="text" name="username" placeholder="username">
-                  <input type="password" name="password" placeholder="password">
-                  <input type="submit">
+                  <input type="text" name="username" placeholder="username" required>
+                  <input type="password" name="password" placeholder="password" required>
+                  <input type="submit" value="Submit">
+                  <input type="reset" value="Reset">
                   <div id="remember-container">
-                   <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/><span> remember me</span><br />
-                   <span id="forgotten-button" data-toggle="modal" data-target="#forgotten-container">forgotten password</span>
-                 </div>
+                   <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked">
+                   <span>remember me</span>
+                  </div>
+                  <?php
+                    if(isset($_SESSION["loginerr"]))
+                      echo($_SESSION["loginerr"]);
+                  ?>
                </form>
-             </div>
+             <!-- </div> -->
            </div>
          </div>
        </div>
@@ -66,63 +73,40 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-        <span class="close-btn">
-              <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
-        </span>
+          <span class="close-btn">
+            <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
+          </span>
           <h3 class="modal-title">register</h3>
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="product_content">
-              <form action="register.php" method="post">
-                <input type="text" name="name" placeholder="name" autocomplete="off">
-                <input type="text" name="username" placeholder="username" autocomplete="off">
-                <input type="email" name="email" placeholder="email" autocomplete="off">
-                <input type="password" name="password" placeholder="password" autocomplete="off">
-                <input type="password" placeholder="confirm password" autocomplete="off">
+            <!-- <div class="form"> -->
+              <form action="register.php" method="post" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="name" autocomplete="off" required>
+                <input type="text" name="username" placeholder="username" autocomplete="off" required>
+                <input type="email" name="email" placeholder="email" autocomplete="off" required>
+                <input type="password" name="password" placeholder="password" autocomplete="off" required>
+                <input type="password" placeholder="confirm password" autocomplete="off" required>
                 <input type="file" name="photo">
+                <?php
+                    if(isset($_SESSION["register_err"]))
+                      echo($_SESSION["register_err"]);
+                ?>
                 <div id="tnc-container">
-                  <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/><span> I agree to terms and conditions</span><br />
+                  <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/><span> I agree to terms and conditions</span><br>
                 </div>
-                <input type="submit"></a>
+                <input type="submit" value="Submit"></a>
+                <input type="reset" value="Reset"></a>
               </form>
-            </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Forgotten Password Container -->
-  <div class="modal fade forgotten-container" id="forgotten-container">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close-btn">
-              <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
-          </span>
-          <h3 class="modal-title">forgotten password</h3>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="product_content">
-             <form>
-              <input type="email" name="email" placeholder="email">
-              <a href="#" class="orange-btn">get new password</a>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    <!-- <div id="forgotten-container">
-      <h1>forgotten</h1>
-      <span class="close-btn">
-        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
-      </span>
      
     </div>
-  </div> -->
+  </div> 
   <div id="particles-js"></div>
 </div>
 
@@ -182,13 +166,8 @@
         new TxtType(elements[i], JSON.parse(toRotate), period);
       }
     }
-        // INJECT CSS
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-        document.body.appendChild(css);
-      };
-    </script>
-    <script type="text/javascript" src="js/index.js"></script>
-  </body>
-</html>
+       };
+     </script>
+     <script type="text/javascript" src="js/index.js"></script>
+   </body>
+   </html>
