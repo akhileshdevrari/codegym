@@ -48,6 +48,8 @@ $num_submissions =  ($row["correct_answers"]+$row["wrong_answers"]+$row["time_li
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   
 
 
@@ -110,7 +112,7 @@ $num_submissions =  ($row["correct_answers"]+$row["wrong_answers"]+$row["time_li
    var chart = new google.visualization.Calendar(document.getElementById('calendar_basic'));
 
    var options = {
-     title: "Attendence",
+     title: "Attendance",
      height: 250
 
    };
@@ -118,7 +120,6 @@ $num_submissions =  ($row["correct_answers"]+$row["wrong_answers"]+$row["time_li
    chart.draw(dataTable, options);
  }
 </script>
-
 
 </head>
 
@@ -234,9 +235,10 @@ $num_submissions =  ($row["correct_answers"]+$row["wrong_answers"]+$row["time_li
                     $sql = "SELECT * FROM submissions WHERE username = '".$username."' ORDER BY submission_date DESC";
                     $tresult = $conn->query($sql);
                     while($trow = $tresult->fetch_assoc())
-                      { ?>
+                      { $link = "submissions/".$trow["contest_id"]."_".$trow["problem_id"].".txt";
+                        ?>
                     <tr>
-                      <td> <?php echo $trow["submission_id"]; ?> </td>
+                      <td><?php echo "<a href='".$link."' download>".$trow["submission_id"]."</a>"; ?> </td>
                       <td> <?php echo $trow["contest_id"]; ?> </td>
                       <td> <?php echo $trow["problem_id"]; ?> </td>
                       <td> <?php echo $trow["problem_title"]; ?> </td>
@@ -304,29 +306,36 @@ $num_submissions =  ($row["correct_answers"]+$row["wrong_answers"]+$row["time_li
             x = document.getElementById("nquestions").value;
             for (i = 1; i <= x; i++){
               document.getElementById("spaceForQuestions").innerHTML +=
-              "<span style='margin-left:30%;'>Q" + i + 
-              "<select style='border-radius: 5px; margin-top:4px; margin-bottom:4px; margin-left:18px;' name='difficulty" + i + "'>" +
-              "<option disabled selected hidden>--difficulty--</option>" +
-              "<option value='easy'>easy</option>" +
-              "<option value='medium'>medium</option>" +
-              "<option value='hard'>hard</option></select>" +
+              "<span style='float:left'>Q" + i + 
+                "<select name='difficulty" + i + "'>" +
+                "<option disabled selected hidden>--difficulty--</option>" +
+                "<option value='easy'>easy</option>" +
+                "<option value='medium'>medium</option>" +
+                "<option value='hard'>hard</option></select>" +
               "</span>" +
-              "<input type='text' id='dropdown" + i +"' style='border-radius: 5px; margin:4px;' name='tag" + i + "' required >" +
-              "<span class='dropdown'>" +
-                "<button type='button' class='dropbtn'>" +
-                  "<i class='fa fa-caret-down'></i>" +
-                "<ul class='dropdown-content'>" +
-                  "<li value='dp' onclick='choose(this.value, " + i + ")'>dynamic programming</li>" +
-                  "<li value='dfs' onclick='choose(this.value, " + i + ")'>depth first search</li>" +
-                  "<li type='button' value='greedy' onclick='choose(this.value, " + i + ")'>greedy programming</li>" +
-                  "<li type='button' value='bruteforce' onclick='choose(this.value, " + i + ")'>brute force</li>" +
-                "</ul>" +   
-                "</button>" +
-              "</span>";
+              "<nav class='navbar navbar-default navbar-static' style='background-color:#ffff7f; border:none;'>" +
+                "<ul class='nav navbar-nav'>" +
+                  "<li class='dropdown dropdown-large'>" +
+                    "<input type='text' id='dropdownInput" + i + "' name='tag" + i +"' required readonly>" +
+                    "<a href='#' class='dropdown-toggle' data-toggle='dropdown'></a>" +
+                    "<ul class='dropdown-menu dropdown-menu-large row' style='background-color:#eee;'>" +
+                      "<li class='col-sm-3'>" +
+                        "<ul id='dynamicQuestions'>" +
+                          "<li><a id='dp' onclick='choose(this, " + i + ")'>DynamicProgramming</a></li>" +
+                          "<li><a id='adhoc' onclick='choose(this, " + i + ")'>Adhoc</a></li>" +
+                          "<li><a id='greedy' onclick='choose(this, " + i + ")'>Greedy</a></li>" +
+                          "<li><a id='math' onclick='choose(this, " + i + ")'>Math</a></li>" +
+                        "</ul>" +
+                      "</li>" +
+                    "</ul>" +
+                  "</li>" +
+                "</ul>" +
+              "</nav>";
             }
           }
-          function choose(received_value, index){
-            var character = "dropdown" + index;
+          function choose(element, index){
+            var received_value = element.id;
+            var character = "dropdownInput" + index;
             document.getElementById(character).value = received_value;
           }
         </script>

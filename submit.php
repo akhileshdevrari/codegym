@@ -16,25 +16,9 @@
 
 
 
-	// echo "Upload: " . $_FILES["submission"]["name"] . "<br>";
-	// echo "Type: " . $_FILES["submission"]["type"] . "<br>";
-	// echo "Size: " . ($_FILES["submission"]["size"] / 1024) . " kB<br>";
-	// echo "Stored in: " . $_FILES["submission"]["tmp_name"]."<br>";
-
-	// // store file content as a string in $str
-	// $str = file_get_contents($_FILES["submission"]["tmp_name"]);
-	// echo($str."<br><br>");
-
-
-
-
 	$_SESSION["downloaded"][$_SESSION["num_id"]] = 1;
 	$file = "submissions/".$_SESSION["contest_id"]."_".$_SESSION["problem_id"][$_SESSION["num_id"]].".txt";
-	// echo "file path = ".$file."<br><br>";
-	// var_dump($_SESSION["result"][$_SESSION["num_id"]]);
-	// echo "<br><br>";
-	//print_r($_FILES['submission']);
-	// echo "<br><br>";
+
 	if(!file_exists($_FILES['submission']['tmp_name']) || !is_uploaded_file($_FILES['submission']['tmp_name'])) {
         $_SESSION["result"][$_SESSION["num_id"]] = "Time Limit Exceeded";
         //echo "jai hind";

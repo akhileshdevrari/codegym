@@ -48,7 +48,7 @@
           <div class="modal-body">
             <div class="row">
               <!-- <div class="form"> -->
-                <form action="login.php" method="post">
+                <form action="login.php" method="post" enctype="multipart/form-data">
                   <input type="text" name="username" placeholder="username" required>
                   <input type="password" name="password" placeholder="password" required>
                   <input type="submit" value="Submit">

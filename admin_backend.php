@@ -9,7 +9,7 @@
 	$inputfile = $_FILES['backend_input'];
 	$outputfile = $_FILES['backend_output'];
 
-	$sql = "INSERT INTO problem(title, problem_statement, input_text, output_text, sample_input, sample_output, backend_input, backend_output, difficulty, author, tester) VALUES ('".$_POST["title"]."', '".nl2br($_POST["problem_statement"])."', '".nl2br($_POST["input_text"])."', '".nl2br($_POST["output_text"])."', '".nl2br($_POST["sample_input"])."', '".nl2br($_POST["sample_output"])."', '".$_POST["backend_input"]."', '".$_POST["backend_output"]."', '".$_POST["difficulty"]."', '".$_POST["author"]."', '".$_POST["tester"]."')";
+	$sql = "INSERT INTO problem(title, problem_statement, input_text, output_text, sample_input, sample_output, backend_input, backend_output, difficulty, author) VALUES ('".$_POST["title"]."', '".nl2br($_POST["problem_statement"])."', '".nl2br($_POST["input_text"])."', '".nl2br($_POST["output_text"])."', '".nl2br($_POST["sample_input"])."', '".nl2br($_POST["sample_output"])."', '".$_POST["backend_input"]."', '".$_POST["backend_output"]."', '".$_POST["difficulty"]."', '".$_POST["author"]."')";
 	if ($conn->query($sql) === TRUE) 
 	{
 	    echo "successfully inserted into problem table<br>";
